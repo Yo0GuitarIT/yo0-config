@@ -2,6 +2,11 @@
 
 This document shows how to use the shared configurations in different types of projects.
 
+## Prerequisites
+
+- **Node.js**: >=20.9.0 (LTS)
+- **Package Manager**: npm, pnpm, or yarn
+
 ## Setting up a new TypeScript project
 
 ### 1. Install dependencies
