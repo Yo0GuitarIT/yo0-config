@@ -1,4 +1,7 @@
 import tsParser from '@typescript-eslint/parser'
+import tsPlugin from '@typescript-eslint/eslint-plugin'
+import simpleImportSort from 'eslint-plugin-simple-import-sort'
+import unusedImports from 'eslint-plugin-unused-imports'
 
 export interface ESLintConfig {
     files?: string[]
@@ -46,12 +49,38 @@ export const typescript: ESLintConfig = {
             project: './tsconfig.json',
         },
     },
+    plugins: {
+        '@typescript-eslint': tsPlugin,
+        'simple-import-sort': simpleImportSort,
+        'unused-imports': unusedImports,
+    },
     rules: {
         'no-unused-vars': 'off', // Turn off base rule as it can report incorrect errors
         'prefer-const': 'error',
         'no-var': 'error',
         'object-shorthand': 'error',
         'prefer-arrow-callback': 'error',
+
+        // TypeScript-specific rules
+        '@typescript-eslint/no-unused-vars': 'error',
+        '@typescript-eslint/no-explicit-any': 'warn',
+        '@typescript-eslint/no-var-requires': 'error',
+
+        // Import sorting
+        'simple-import-sort/imports': 'error',
+        'simple-import-sort/exports': 'error',
+
+        // Unused imports
+        'unused-imports/no-unused-imports': 'error',
+        'unused-imports/no-unused-vars': [
+            'warn',
+            {
+                vars: 'all',
+                varsIgnorePattern: '^_',
+                args: 'after-used',
+                argsIgnorePattern: '^_',
+            },
+        ],
     },
 }
 
