@@ -66,6 +66,32 @@ export default config
 }
 ```
 
+## Features included
+
+### Automatic Import/Export Sorting
+
+The ESLint configuration includes automatic import and export sorting:
+
+- **Import sorting**: Automatically sorts imports by type (Node.js built-ins, third-party packages, relative imports)
+- **Export sorting**: Automatically sorts export statements
+- **Unused import removal**: Automatically removes unused imports
+
+```typescript
+// Before linting
+import lodash from 'lodash'
+import { readFileSync } from 'fs'
+import axios from 'axios'
+import { helper } from './utils'
+
+// After running `eslint --fix`
+import { readFileSync } from 'fs'
+import axios from 'axios'
+import lodash from 'lodash'
+import { helper } from './utils'
+```
+
+Run `npm run lint:fix` to automatically sort imports and remove unused ones.
+
 ## For different project types
 
 ### Web Project
