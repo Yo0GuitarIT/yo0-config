@@ -1,0 +1,104 @@
+import tsParser from "@typescript-eslint/parser";
+
+export interface ESLintConfig {
+  files?: string[];
+  languageOptions?: {
+    ecmaVersion?: string | number;
+    sourceType?: "script" | "module";
+    parser?: any;
+    parserOptions?: Record<string, any>;
+    globals?: Record<string, any>;
+  };
+  plugins?: Record<string, any>;
+  rules?: Record<string, any>;
+  settings?: Record<string, any>;
+}
+
+export const base: ESLintConfig = {
+  languageOptions: {
+    ecmaVersion: 2022,
+    sourceType: "module",
+    globals: {
+      console: "readonly",
+      process: "readonly",
+      Buffer: "readonly",
+      __dirname: "readonly",
+      __filename: "readonly",
+      global: "readonly",
+    },
+  },
+  rules: {
+    "no-console": "warn",
+    "no-unused-vars": "error",
+    "prefer-const": "error",
+    "no-var": "error",
+    "object-shorthand": "error",
+    "prefer-arrow-callback": "error",
+  },
+};
+
+export const typescript: ESLintConfig = {
+  languageOptions: {
+    ecmaVersion: 2022,
+    sourceType: "module",
+    parser: tsParser,
+    parserOptions: {
+      project: "./tsconfig.json",
+    },
+  },
+  rules: {
+    "no-unused-vars": "off", // Turn off base rule as it can report incorrect errors
+    "prefer-const": "error",
+    "no-var": "error",
+    "object-shorthand": "error",
+    "prefer-arrow-callback": "error",
+  },
+};
+
+export const node: ESLintConfig = {
+  languageOptions: {
+    ecmaVersion: 2022,
+    sourceType: "module",
+    globals: {
+      process: "readonly",
+      Buffer: "readonly",
+      __dirname: "readonly",
+      __filename: "readonly",
+      global: "readonly",
+      module: "readonly",
+      require: "readonly",
+      exports: "readonly",
+    },
+  },
+  rules: {
+    "no-process-exit": "off",
+  },
+};
+
+export const react: ESLintConfig = {
+  languageOptions: {
+    ecmaVersion: 2022,
+    sourceType: "module",
+    parserOptions: {
+      ecmaFeatures: {
+        jsx: true,
+      },
+    },
+  },
+  settings: {
+    react: {
+      version: "detect",
+    },
+  },
+  rules: {
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
+  },
+};
+
+export default {
+  base,
+  typescript,
+  node,
+  react,
+};
