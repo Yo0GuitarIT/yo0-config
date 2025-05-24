@@ -1,9 +1,9 @@
 {
-  "extends": "./base.json",
-  "compilerOptions": {
-    "target": "ES2022",
-    "module": "ESNext",
-    "moduleResolution": "node",
-    "types": ["node"]
-  }
+    "extends": "./base.json",
+    "compilerOptions": {
+        "target": "ES2022",
+        "module": "ESNext",
+        "moduleResolution": "node",
+        "types": ["node"]
+    }
 }

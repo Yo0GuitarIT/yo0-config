@@ -1,37 +1,37 @@
 {
-  "name": "@yo0/eslint-config",
-  "version": "1.0.0",
-  "description": "Shared ESLint configuration for TypeScript projects",
-  "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist/**/*"
-  ],
-  "scripts": {
-    "build": "tsc",
-    "dev": "tsc --watch",
-    "clean": "rm -rf dist",
-    "typecheck": "tsc --noEmit"
-  },
-  "keywords": [
-    "eslint",
-    "config",
-    "typescript"
-  ],
-  "peerDependencies": {
-    "eslint": "^9.0.0"
-  },
-  "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^7.0.0",
-    "@typescript-eslint/parser": "^7.18.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-import": "^2.29.0",
-    "eslint-plugin-n": "^17.0.0",
-    "eslint-plugin-promise": "^6.1.0"
-  },
-  "devDependencies": {
-    "eslint": "^9.0.0",
-    "typescript": "^5.4.0"
-  }
+    "name": "@yo0/eslint-config",
+    "version": "1.0.0",
+    "description": "Shared ESLint configuration for TypeScript projects",
+    "type": "module",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist/**/*"
+    ],
+    "scripts": {
+        "build": "tsc",
+        "dev": "tsc --watch",
+        "clean": "rm -rf dist",
+        "typecheck": "tsc --noEmit"
+    },
+    "keywords": [
+        "eslint",
+        "config",
+        "typescript"
+    ],
+    "peerDependencies": {
+        "eslint": "^9.0.0"
+    },
+    "dependencies": {
+        "@typescript-eslint/eslint-plugin": "^7.0.0",
+        "@typescript-eslint/parser": "^7.18.0",
+        "eslint-config-prettier": "^9.0.0",
+        "eslint-plugin-import": "^2.29.0",
+        "eslint-plugin-n": "^17.0.0",
+        "eslint-plugin-promise": "^6.1.0"
+    },
+    "devDependencies": {
+        "eslint": "^9.0.0",
+        "typescript": "^5.4.0"
+    }
 }

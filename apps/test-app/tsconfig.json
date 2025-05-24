@@ -1,8 +1,8 @@
 {
-  "extends": "@yo0/typescript-config/configs/node.json",
-  "compilerOptions": {
-    "outDir": "./dist",
-    "rootDir": "./src"
-  },
-  "include": ["src/**/*"]
+    "extends": "@yo0/typescript-config/configs/node.json",
+    "compilerOptions": {
+        "outDir": "./dist",
+        "rootDir": "./src"
+    },
+    "include": ["src/**/*"]
 }

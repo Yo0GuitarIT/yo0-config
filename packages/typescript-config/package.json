@@ -1,29 +1,29 @@
 {
-  "name": "@yo0/typescript-config",
-  "version": "1.0.0",
-  "description": "Shared TypeScript configurations",
-  "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist/**/*",
-    "configs/**/*"
-  ],
-  "scripts": {
-    "build": "tsc",
-    "dev": "tsc --watch",
-    "clean": "rm -rf dist",
-    "typecheck": "tsc --noEmit"
-  },
-  "keywords": [
-    "typescript",
-    "config",
-    "tsconfig"
-  ],
-  "peerDependencies": {
-    "typescript": "^5.0.0"
-  },
-  "devDependencies": {
-    "typescript": "^5.4.0"
-  }
+    "name": "@yo0/typescript-config",
+    "version": "1.0.0",
+    "description": "Shared TypeScript configurations",
+    "type": "module",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist/**/*",
+        "configs/**/*"
+    ],
+    "scripts": {
+        "build": "tsc",
+        "dev": "tsc --watch",
+        "clean": "rm -rf dist",
+        "typecheck": "tsc --noEmit"
+    },
+    "keywords": [
+        "typescript",
+        "config",
+        "tsconfig"
+    ],
+    "peerDependencies": {
+        "typescript": "^5.0.0"
+    },
+    "devDependencies": {
+        "typescript": "^5.4.0"
+    }
 }

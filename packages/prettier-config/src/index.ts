@@ -1,31 +1,31 @@
-import type { Config } from "prettier";
+import type { Config } from 'prettier'
 
 export const base: Config = {
-  semi: false,
-  singleQuote: true,
-  tabWidth: 2,
-  trailingComma: "es5",
-  printWidth: 80,
-  useTabs: false,
-  bracketSpacing: true,
-  arrowParens: "avoid",
-  endOfLine: "lf",
-};
+    semi: false,
+    singleQuote: true,
+    tabWidth: 4,
+    trailingComma: 'es5',
+    printWidth: 80,
+    useTabs: false,
+    bracketSpacing: true,
+    arrowParens: 'avoid',
+    endOfLine: 'lf',
+}
 
 export const typescript: Config = {
-  ...base,
-  parser: "typescript",
-};
+    ...base,
+    parser: 'typescript',
+}
 
 export const json: Config = {
-  ...base,
-  parser: "json",
-};
+    ...base,
+    parser: 'json',
+}
 
 export const markdown: Config = {
-  ...base,
-  parser: "markdown",
-  printWidth: 120,
-};
+    ...base,
+    parser: 'markdown',
+    printWidth: 120,
+}
 
-export default base;
+export default base

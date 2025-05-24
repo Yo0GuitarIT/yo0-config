@@ -17,52 +17,52 @@ npm install --save-dev eslint prettier typescript
 
 ```json
 {
-  "extends": "@yo0/typescript-config/configs/node.json",
-  "compilerOptions": {
-    "outDir": "./dist",
-    "rootDir": "./src"
-  },
-  "include": ["src/**/*"]
+    "extends": "@yo0/typescript-config/configs/node.json",
+    "compilerOptions": {
+        "outDir": "./dist",
+        "rootDir": "./src"
+    },
+    "include": ["src/**/*"]
 }
 ```
 
 **eslint.config.js**
 
 ```javascript
-import config from "@yo0/eslint-config";
+import config from '@yo0/eslint-config'
 
 export default [
-  {
-    files: ["**/*.js"],
-    ...config.base,
-  },
-  {
-    files: ["**/*.ts"],
-    ...config.typescript,
-  },
-];
+    {
+        files: ['**/*.js'],
+        ...config.base,
+    },
+    {
+        files: ['**/*.ts'],
+        ...config.typescript,
+    },
+]
 ```
 
 **prettier.config.js**
 
 ```javascript
-import config from "@yo0/prettier-config";
+import config from '@yo0/prettier-config'
 
-export default config;
+export default config
 ```
 
 ### 3. Add scripts to package.json
 
 ```json
 {
-  "scripts": {
-    "build": "tsc",
-    "lint": "eslint src",
-    "lint:fix": "eslint src --fix",
-    "format": "prettier --write \"src/**/*.{ts,js,json}\"",
-    "format:check": "prettier --check \"src/**/*.{ts,js,json}\"",
-    "typecheck": "tsc --noEmit"
-  }
+    "scripts": {
+        "build": "tsc",
+        "lint": "eslint src",
+        "lint:fix": "eslint src --fix",
+        "format": "prettier --write \"src/**/*.{ts,js,json}\"",
+        "format:check": "prettier --check \"src/**/*.{ts,js,json}\"",
+        "typecheck": "tsc --noEmit"
+    }
 }
 ```
 
@@ -73,7 +73,7 @@ export default config;
 ```json
 // tsconfig.json
 {
-  "extends": "@yo0/typescript-config/configs/web.json"
+    "extends": "@yo0/typescript-config/configs/web.json"
 }
 ```
 
@@ -82,7 +82,7 @@ export default config;
 ```json
 // tsconfig.json
 {
-  "extends": "@yo0/typescript-config/configs/react.json"
+    "extends": "@yo0/typescript-config/configs/react.json"
 }
 ```
 
@@ -91,7 +91,7 @@ export default config;
 ```json
 // tsconfig.json
 {
-  "extends": "@yo0/typescript-config/configs/library.json"
+    "extends": "@yo0/typescript-config/configs/library.json"
 }
 ```
 
@@ -101,29 +101,30 @@ You can extend and customize the base configurations:
 
 ```javascript
 // eslint.config.js
-import config from "@yo0/eslint-config";
+import config from '@yo0/eslint-config'
 
 export default [
-  {
-    files: ["**/*.ts"],
-    ...config.typescript,
-    rules: {
-      ...config.typescript.rules,
-      // Add your custom rules
-      "no-console": "error",
+    {
+        files: ['**/*.ts'],
+        ...config.typescript,
+        rules: {
+            ...config.typescript.rules,
+            // Add your custom rules
+            'no-console': 'error',
+        },
     },
-  },
-];
+]
 ```
 
 ```javascript
 // prettier.config.js
-import baseConfig from "@yo0/prettier-config";
+import baseConfig from '@yo0/prettier-config'
 
 export default {
-  ...baseConfig,
-  // Override specific options
-  printWidth: 120,
-  tabWidth: 4,
-};
+    ...baseConfig,
+    // Override specific options if needed
+    printWidth: 120,
+    // tabWidth is now 4 by default, but you can still customize it
+    tabWidth: 2, // if you prefer 2 spaces
+}
 ```
