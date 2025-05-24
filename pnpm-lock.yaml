@@ -33,13 +33,13 @@ importers:
       '@types/node':
         specifier: ^22.0.0
         version: 22.15.21
-      '@yo0/eslint-config':
+      '@yo0-guitar-dev/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@yo0/prettier-config':
+      '@yo0-guitar-dev/prettier-config':
         specifier: workspace:*
         version: link:../../packages/prettier-config
-      '@yo0/typescript-config':
+      '@yo0-guitar-dev/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       eslint:

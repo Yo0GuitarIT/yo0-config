@@ -1,18 +1,18 @@
-# @yo0/configs
+# @yo0-guitar-dev/configs
 
 A collection of shared configuration packages for development tools, built with TypeScript and designed for modern web development.
 
 ## Packages
 
-### [@yo0/eslint-config](./packages/eslint-config/)
+### [@yo0-guitar-dev/eslint-config](./packages/eslint-config/)
 
 Shared ESLint configurations for TypeScript, Node.js, and React projects.
 
-### [@yo0/prettier-config](./packages/prettier-config/)
+### [@yo0-guitar-dev/prettier-config](./packages/prettier-config/)
 
 Shared Prettier configuration for consistent code formatting.
 
-### [@yo0/typescript-config](./packages/typescript-config/)
+### [@yo0-guitar-dev/typescript-config](./packages/typescript-config/)
 
 Shared TypeScript configurations for different project types.
 
@@ -34,27 +34,27 @@ pnpm build
 
 ```javascript
 // eslint.config.js
-import config from "@yo0/eslint-config";
+import config from '@yo0-guitar-dev/eslint-config'
 
 export default [
-  {
-    ...config.typescript,
-    files: ["**/*.ts", "**/*.tsx"],
-  },
-  {
-    ...config.base,
-    files: ["**/*.js", "**/*.jsx"],
-  },
-];
+    {
+        ...config.typescript,
+        files: ['**/*.ts', '**/*.tsx'],
+    },
+    {
+        ...config.base,
+        files: ['**/*.js', '**/*.jsx'],
+    },
+]
 ```
 
 #### Prettier Configuration
 
 ```javascript
 // prettier.config.js
-import config from "@yo0/prettier-config";
+import config from '@yo0-guitar-dev/prettier-config'
 
-export default config;
+export default config
 ```
 
 #### TypeScript Configuration
@@ -62,12 +62,12 @@ export default config;
 ```json
 // tsconfig.json
 {
-  "extends": "@yo0/typescript-config/configs/node.json",
-  "compilerOptions": {
-    "outDir": "./dist",
-    "rootDir": "./src"
-  },
-  "include": ["src/**/*"]
+    "extends": "@yo0-guitar-dev/typescript-config/configs/node.json",
+    "compilerOptions": {
+        "outDir": "./dist",
+        "rootDir": "./src"
+    },
+    "include": ["src/**/*"]
 }
 ```
 

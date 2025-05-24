@@ -1,5 +1,5 @@
 {
-    "name": "@yo0/configs",
+    "name": "@yo0-guitar-dev/configs",
     "version": "1.0.0",
     "description": "Shared configuration packages for development tools",
     "private": true,

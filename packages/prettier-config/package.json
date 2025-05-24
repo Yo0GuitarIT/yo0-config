@@ -1,5 +1,5 @@
 {
-    "name": "@yo0/prettier-config",
+    "name": "@yo0-guitar-dev/prettier-config",
     "version": "1.0.0",
     "description": "Shared Prettier configuration",
     "type": "module",

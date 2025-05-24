@@ -1,5 +1,5 @@
 {
-    "name": "@yo0/eslint-config",
+    "name": "@yo0-guitar-dev/eslint-config",
     "version": "1.0.0",
     "description": "Shared ESLint configuration for TypeScript projects",
     "type": "module",

@@ -1,3 +1,3 @@
-import config from '@yo0/prettier-config'
+import config from '@yo0-guitar-dev/prettier-config'
 
 export default config

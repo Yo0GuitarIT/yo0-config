@@ -1,12 +1,12 @@
-import config from '@yo0/eslint-config'
+import config from '@yo0-guitar-dev/eslint-config'
 
 export default [
-    {
-        files: ['**/*.js'],
-        ...config.base,
-    },
-    {
-        files: ['**/*.ts'],
-        ...config.typescript,
-    },
+  {
+    files: ['**/*.js'],
+    ...config.base,
+  },
+  {
+    files: ['**/*.ts'],
+    ...config.typescript,
+  },
 ]
