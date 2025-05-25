@@ -1,50 +1,183 @@
 # @yo0-guitar-dev/configs
 
-TypeScript 開發工具的共享配置包。
+Shared configuration packages for TypeScript development tools.
 
-## 套件
+## Packages
 
-- **[@yo0-guitar-dev/eslint-config](./packages/eslint-config/)** - ESLint 配置 (支援 TypeScript, Node.js, React)
-- **[@yo0-guitar-dev/prettier-config](./packages/prettier-config/)** - Prettier 配置 (tabWidth: 4)
-- **[@yo0-guitar-dev/typescript-config](./packages/typescript-config/)** - TypeScript 配置 (base, node, web, react)
+- **[@yo0-guitar-dev/eslint-config](./packages/eslint-config/)** - ESLint configuration (TypeScript, Node.js, React support)
+- **[@yo0-guitar-dev/prettier-config](./packages/prettier-config/)** - Prettier configuration (tabWidth: 4)
+- **[@yo0-guitar-dev/typescript-config](./packages/typescript-config/)** - TypeScript configuration (base, node, web, react)
 
-## 使用方式
+## Quick Start
 
-### ESLint
+### Prerequisites
 
-```javascript
-// eslint.config.js
-import config from '@yo0-guitar-dev/eslint-config'
-export default config.typescript
+- **Node.js**: >=20.9.0 (LTS)
+- **Package Manager**: npm, pnpm, or yarn
+
+### Setting up a TypeScript Project
+
+#### 1. Install Dependencies
+
+```bash
+npm install --save-dev @yo0-guitar-dev/eslint-config @yo0-guitar-dev/prettier-config @yo0-guitar-dev/typescript-config
+npm install --save-dev eslint prettier typescript
 ```
 
-### Prettier
+#### 2. Create Configuration Files
+
+**tsconfig.json**
+
+```json
+{
+    "extends": "@yo0-guitar-dev/typescript-config/configs/node.json",
+    "compilerOptions": {
+        "outDir": "./dist",
+        "rootDir": "./src"
+    },
+    "include": ["src/**/*"]
+}
+```
+
+**eslint.config.js**
 
 ```javascript
-// prettier.config.js
+import config from '@yo0-guitar-dev/eslint-config'
+
+export default [
+    {
+        files: ['**/*.js'],
+        ...config.base,
+    },
+    {
+        files: ['**/*.ts'],
+        ...config.typescript,
+    },
+]
+```
+
+**prettier.config.js**
+
+```javascript
 import config from '@yo0-guitar-dev/prettier-config'
+
 export default config
 ```
 
-### TypeScript
+#### 3. Add Scripts to package.json
+
+```json
+{
+    "scripts": {
+        "build": "tsc",
+        "lint": "eslint src",
+        "lint:fix": "eslint src --fix",
+        "format": "prettier --write \"src/**/*.{ts,js,json}\"",
+        "format:check": "prettier --check \"src/**/*.{ts,js,json}\"",
+        "typecheck": "tsc --noEmit"
+    }
+}
+```
+
+## Features
+
+### Automatic Import/Export Sorting
+
+The ESLint configuration includes automatic import and export sorting:
+
+- **Import sorting**: Automatically sorts imports by type (Node.js built-ins, third-party packages, relative imports)
+- **Export sorting**: Automatically sorts export statements
+- **Unused import removal**: Automatically removes unused imports
+
+```typescript
+// Before linting
+import lodash from 'lodash'
+import { readFileSync } from 'fs'
+import axios from 'axios'
+import { helper } from './utils'
+
+// After running `eslint --fix`
+import { readFileSync } from 'fs'
+import axios from 'axios'
+import lodash from 'lodash'
+import { helper } from './utils'
+```
+
+Run `npm run lint:fix` to automatically sort imports and remove unused ones.
+
+## Different Project Types
+
+### Web Project
 
 ```json
 // tsconfig.json
 {
-    "extends": "@yo0-guitar-dev/typescript-config/configs/node.json"
+    "extends": "@yo0-guitar-dev/typescript-config/configs/web.json"
 }
 ```
 
-## 開發
+### React Project
 
-```bash
-pnpm install    # 安裝依賴
-pnpm build      # 建置所有套件
-pnpm lint       # 檢查程式碼
-pnpm typecheck  # 型別檢查
+```json
+// tsconfig.json
+{
+    "extends": "@yo0-guitar-dev/typescript-config/configs/react.json"
+}
 ```
 
-## 需求
+### Library Project
+
+```json
+// tsconfig.json
+{
+    "extends": "@yo0-guitar-dev/typescript-config/configs/library.json"
+}
+```
+
+## Customizing Configurations
+
+You can extend and customize the base configurations:
+
+```javascript
+// eslint.config.js
+import config from '@yo0-guitar-dev/eslint-config'
+
+export default [
+    {
+        files: ['**/*.ts'],
+        ...config.typescript,
+        rules: {
+            ...config.typescript.rules,
+            // Add your custom rules
+            'no-console': 'error',
+        },
+    },
+]
+```
+
+```javascript
+// prettier.config.js
+import baseConfig from '@yo0-guitar-dev/prettier-config'
+
+export default {
+    ...baseConfig,
+    // Override specific options if needed
+    printWidth: 120,
+    // tabWidth is now 4 by default, but you can still customize it
+    tabWidth: 2, // if you prefer 2 spaces
+}
+```
+
+## Development
+
+```bash
+pnpm install    # Install dependencies
+pnpm build      # Build all packages
+pnpm lint       # Lint code
+pnpm typecheck  # Type check
+```
+
+## Requirements
 
 - Node.js >=20.9.0
 - pnpm >=8.0.0
