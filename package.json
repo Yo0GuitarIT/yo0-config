@@ -1,6 +1,4 @@
 {
-    "name": "@yo0-guitar-dev/configs",
-    "version": "1.0.0",
     "description": "Shared configuration packages for development tools",
     "private": true,
     "type": "module",
@@ -15,8 +13,7 @@
         "clean": "pnpm -r clean && rm -rf node_modules",
         "typecheck": "pnpm -r typecheck",
         "format": "prettier --write \"packages/**/*.{ts,js,json}\" \"apps/**/*.{ts,js,json}\"",
-        "format:check": "prettier --check \"packages/**/*.{ts,js,json}\" \"apps/**/*.{ts,js,json}\"",
-        "prepare-release": "./scripts/prepare-release.sh"
+        "format:check": "prettier --check \"packages/**/*.{ts,js,json}\" \"apps/**/*.{ts,js,json}\""
     },
     "devDependencies": {
         "@types/node": "^22.0.0",

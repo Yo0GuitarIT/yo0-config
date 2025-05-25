@@ -1,36 +1,56 @@
-# @yo0-guitar-dev/configs
+# yo0-config
 
-Shared configuration packages for TypeScript development tools.
+Shared configuration packages for TypeScript development tools. This project is intended to be used as a git submodule.
 
 ## Packages
 
-- **[@yo0-guitar-dev/eslint-config](./packages/eslint-config/)** - ESLint configuration (TypeScript, Node.js, React support)
-- **[@yo0-guitar-dev/prettier-config](./packages/prettier-config/)** - Prettier configuration (tabWidth: 4)
-- **[@yo0-guitar-dev/typescript-config](./packages/typescript-config/)** - TypeScript configuration (base, node, web, react)
+- **[eslint-config](./packages/eslint-config/)** - ESLint configuration (TypeScript, Node.js, React support)
+- **[prettier-config](./packages/prettier-config/)** - Prettier configuration (tabWidth: 4)
+- **[typescript-config](./packages/typescript-config/)** - TypeScript configuration (base, node, web, react)
+
+## Using as a Git Submodule
+
+To use these configurations in your project, add this repository as a git submodule:
+
+```bash
+git submodule add <repository_url> path/to/yo0-config
+# Example: git submodule add https://github.com/your-username/yo0-config.git config/yo0-config
+git submodule update --init --recursive
+```
+
+Replace `<repository_url>` with the actual URL of this repository and `path/to/yo0-config` with the desired path where the submodule should be cloned within your project.
 
 ## Quick Start
 
 ### Prerequisites
 
 - **Node.js**: >=20.9.0 (LTS)
-- **Package Manager**: npm, pnpm, or yarn
+- **Git**: For managing submodules
 
 ### Setting up a TypeScript Project
 
-#### 1. Install Dependencies
+#### 1. Install Peer Dependencies
+
+You'll still need to install the peer dependencies for ESLint, Prettier, and TypeScript in your main project:
 
 ```bash
-npm install --save-dev @yo0-guitar-dev/eslint-config @yo0-guitar-dev/prettier-config @yo0-guitar-dev/typescript-config
 npm install --save-dev eslint prettier typescript
+# or
+pnpm add -D eslint prettier typescript
+# or
+yarn add -D eslint prettier typescript
 ```
 
 #### 2. Create Configuration Files
+
+Reference the configurations from the submodule path. Assuming you cloned the submodule into `config/yo0-config`:
 
 **tsconfig.json**
 
 ```json
 {
-    "extends": "@yo0-guitar-dev/typescript-config/configs/node.json",
+    // Adjust the path based on your submodule location
+    "extends": "./config/yo0-config/packages/typescript-config/configs/node.json",
     "compilerOptions": {
         "outDir": "./dist",
         "rootDir": "./src"
@@ -41,30 +61,38 @@ npm install --save-dev eslint prettier typescript
 
 **eslint.config.js**
 
+Make sure your `eslint.config.js` can resolve the paths to the submodule. You might need to adjust paths depending on your project structure and how ESLint resolves modules.
+
 ```javascript
-import config from '@yo0-guitar-dev/eslint-config'
+// Adjust the import path based on your submodule location
+import yo0ConfigEslint from './config/yo0-config/packages/eslint-config/src/index.js' // Assuming index.js is the entry point
 
 export default [
     {
         files: ['**/*.js'],
-        ...config.base,
+        ...yo0ConfigEslint.base, // Or however the base config is exported
     },
     {
         files: ['**/*.ts'],
-        ...config.typescript,
+        ...yo0ConfigEslint.typescript, // Or however the typescript config is exported
     },
 ]
 ```
 
+_Note: The exact import mechanism for ESLint configs from a submodule might need adjustments based on how `eslint-config/src/index.js` exports its configurations. You might need to use relative paths or ensure Node.js module resolution can find it._
+
 **prettier.config.js**
 
 ```javascript
-import config from '@yo0-guitar-dev/prettier-config'
+// Adjust the import path based on your submodule location
+import yo0ConfigPrettier from './config/yo0-config/packages/prettier-config/src/index.js' // Assuming index.js is the entry point
 
-export default config
+export default yo0ConfigPrettier
 ```
 
 #### 3. Add Scripts to package.json
+
+The scripts in your main project's `package.json` remain largely the same:
 
 ```json
 {
@@ -72,8 +100,8 @@ export default config
         "build": "tsc",
         "lint": "eslint src",
         "lint:fix": "eslint src --fix",
-        "format": "prettier --write \"src/**/*.{ts,js,json}\"",
-        "format:check": "prettier --check \"src/**/*.{ts,js,json}\"",
+        "format": "prettier --write \\"src/**/*.{ts,js,json}\\"",
+        "format:check": "prettier --check \\"src/**/*.{ts,js,json}\\"",
         "typecheck": "tsc --noEmit"
     }
 }
@@ -107,12 +135,15 @@ Run `npm run lint:fix` to automatically sort imports and remove unused ones.
 
 ## Different Project Types
 
+Adjust the `extends` path in your `tsconfig.json` similar to the "Quick Start" example:
+
 ### Web Project
 
 ```json
 // tsconfig.json
 {
-    "extends": "@yo0-guitar-dev/typescript-config/configs/web.json"
+    // Adjust path to submodule
+    "extends": "./config/yo0-config/packages/typescript-config/configs/web.json"
 }
 ```
 
@@ -121,33 +152,38 @@ Run `npm run lint:fix` to automatically sort imports and remove unused ones.
 ```json
 // tsconfig.json
 {
-    "extends": "@yo0-guitar-dev/typescript-config/configs/react.json"
+    // Adjust path to submodule
+    "extends": "./config/yo0-config/packages/typescript-config/configs/react.json"
 }
 ```
 
 ### Library Project
 
+This config was not previously mentioned but if it exists:
+
 ```json
 // tsconfig.json
 {
-    "extends": "@yo0-guitar-dev/typescript-config/configs/library.json"
+    // Adjust path to submodule
+    "extends": "./config/yo0-config/packages/typescript-config/configs/library.json"
 }
 ```
 
 ## Customizing Configurations
 
-You can extend and customize the base configurations:
+When customizing, you'll import or extend from the submodule's path:
 
 ```javascript
 // eslint.config.js
-import config from '@yo0-guitar-dev/eslint-config'
+// Adjust import path
+import yo0ConfigEslint from './config/yo0-config/packages/eslint-config/src/index.js'
 
 export default [
     {
         files: ['**/*.ts'],
-        ...config.typescript,
+        ...yo0ConfigEslint.typescript, // Or however the typescript config is exported
         rules: {
-            ...config.typescript.rules,
+            ...(yo0ConfigEslint.typescript.rules || {}), // Ensure rules object exists
             // Add your custom rules
             'no-console': 'error',
         },
@@ -157,18 +193,18 @@ export default [
 
 ```javascript
 // prettier.config.js
-import baseConfig from '@yo0-guitar-dev/prettier-config'
+// Adjust import path
+import baseConfig from './config/yo0-config/packages/prettier-config/src/index.js'
 
 export default {
     ...baseConfig,
     // Override specific options if needed
     printWidth: 120,
-    // tabWidth is now 4 by default, but you can still customize it
     tabWidth: 2, // if you prefer 2 spaces
 }
 ```
 
-## Development
+## Development (within this submodule)
 
 ```bash
 pnpm install    # Install dependencies
