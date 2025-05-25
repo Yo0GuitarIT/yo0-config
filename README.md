@@ -64,8 +64,8 @@ Reference the configurations from the submodule path. Assuming you cloned the su
 Make sure your `eslint.config.js` can resolve the paths to the submodule. You might need to adjust paths depending on your project structure and how ESLint resolves modules.
 
 ```javascript
-// Adjust the import path based on your submodule location
-import yo0ConfigEslint from './config/yo0-config/packages/eslint-config/src/index.js' // Assuming index.js is the entry point
+// Adjust the import path based on your submodule location and the package's build output directory (e.g., dist)
+import yo0ConfigEslint from './config/yo0-config/packages/eslint-config/dist/index.js' // Assuming compiled output is in 'dist'
 
 export default [
     {
@@ -79,13 +79,13 @@ export default [
 ]
 ```
 
-_Note: The exact import mechanism for ESLint configs from a submodule might need adjustments based on how `eslint-config/src/index.js` exports its configurations. You might need to use relative paths or ensure Node.js module resolution can find it._
+_Note: The exact import mechanism for ESLint configs from a submodule might need adjustments based on how `eslint-config/dist/index.js` exports its configurations and your project's module resolution. Ensure the submodule's packages are built if the 'dist' directory is not committed to the repository._
 
 **prettier.config.js**
 
 ```javascript
-// Adjust the import path based on your submodule location
-import yo0ConfigPrettier from './config/yo0-config/packages/prettier-config/src/index.js' // Assuming index.js is the entry point
+// Adjust the import path based on your submodule location and the package's build output directory (e.g., dist)
+import yo0ConfigPrettier from './config/yo0-config/packages/prettier-config/dist/index.js' // Assuming compiled output is in 'dist'
 
 export default yo0ConfigPrettier
 ```
@@ -175,8 +175,8 @@ When customizing, you'll import or extend from the submodule's path:
 
 ```javascript
 // eslint.config.js
-// Adjust import path
-import yo0ConfigEslint from './config/yo0-config/packages/eslint-config/src/index.js'
+// Adjust import path (assuming compiled output is in 'dist')
+import yo0ConfigEslint from './config/yo0-config/packages/eslint-config/dist/index.js'
 
 export default [
     {
@@ -193,8 +193,8 @@ export default [
 
 ```javascript
 // prettier.config.js
-// Adjust import path
-import baseConfig from './config/yo0-config/packages/prettier-config/src/index.js'
+// Adjust import path (assuming compiled output is in 'dist')
+import baseConfig from './config/yo0-config/packages/prettier-config/dist/index.js'
 
 export default {
     ...baseConfig,
