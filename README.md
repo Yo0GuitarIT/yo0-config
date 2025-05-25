@@ -180,3 +180,27 @@ pnpm typecheck  # Type check
 ## Requirements
 
 - Node.js >=20.9.0
+
+> **Note**: This project requires Node.js 20.9.0 or higher due to:
+>
+> - Node.js 18 reached end-of-life on March 27, 2025
+> - Security: Only supported Node.js versions receive security updates
+> - Ecosystem Compatibility: Major tools (ESLint, TypeScript-ESLint) require Node.js 20.9.0+
+>
+> **Migration**: If upgrading from an older Node.js version:
+>
+> ```bash
+> # Check current version
+> node --version
+>
+> # Using nvm (recommended)
+> nvm install 20
+> nvm use 20
+>
+> # Update your package.json
+> {
+>   "engines": {
+>     "node": ">=20.9.0"
+>   }
+> }
+> ```
