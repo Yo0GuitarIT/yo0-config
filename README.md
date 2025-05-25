@@ -19,9 +19,30 @@ Shared configuration packages for TypeScript development tools.
 
 #### 1. Install Dependencies
 
+**Option 1: From npm (public)**
 ```bash
 npm install --save-dev @yo0-guitar-dev/eslint-config @yo0-guitar-dev/prettier-config @yo0-guitar-dev/typescript-config
 npm install --save-dev eslint prettier typescript
+```
+
+**Option 2: From Git (private/development)**
+```bash
+npm install --save-dev git+https://github.com/Yo0GuitarIT/yo0-config.git
+npm install --save-dev eslint prettier typescript
+```
+
+Or add directly to package.json:
+```json
+{
+  "devDependencies": {
+    "@yo0-guitar-dev/eslint-config": "git+https://github.com/Yo0GuitarIT/yo0-config.git",
+    "@yo0-guitar-dev/prettier-config": "git+https://github.com/Yo0GuitarIT/yo0-config.git", 
+    "@yo0-guitar-dev/typescript-config": "git+https://github.com/Yo0GuitarIT/yo0-config.git",
+    "eslint": "^9.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.0.0"
+  }
+}
 ```
 
 #### 2. Create Configuration Files
