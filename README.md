@@ -180,4 +180,3 @@ pnpm typecheck  # Type check
 ## Requirements
 
 - Node.js >=20.9.0
-- pnpm >=8.0.0
