@@ -18,14 +18,14 @@ export function greetUser(user: User): string {
 }
 
 // Test the configurations
-const testUser = createUser('John Doe', 'john@example.com');
+const testUser = createUser("John Doe", "john@example.com");
 console.log(greetUser(testUser));
 
 // Test some TypeScript features
 const users: User[] = [
-    createUser('Alice', 'alice@example.com'),
-    createUser('Bob', 'bob@example.com'),
+    createUser("Alice", "alice@example.com"),
+    createUser("Bob", "bob@example.com"),
 ];
 
 const userNames = users.map(user => user.name);
-console.log('User names:', userNames.join(', '));
+console.log("User names:", userNames.join(", "));

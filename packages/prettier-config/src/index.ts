@@ -2,7 +2,7 @@ import type { Config } from 'prettier'
 
 export const base: Config = {
     semi: true,
-    singleQuote: true,
+    singleQuote: false,
     tabWidth: 4,
     trailingComma: 'es5',
     printWidth: 80,

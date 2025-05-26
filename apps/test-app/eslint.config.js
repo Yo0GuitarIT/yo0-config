@@ -1,12 +1,12 @@
-import config from '@yo0-config/eslint-config';
+import config from "@yo0-config/eslint-config";
 
 export default [
     {
-        files: ['**/*.js'],
+        files: ["**/*.js"],
         ...config.base,
     },
     {
-        files: ['**/*.ts'],
+        files: ["**/*.ts"],
         ...config.typescript,
     },
 ];
