@@ -13,7 +13,8 @@
         "clean": "pnpm -r clean && rm -rf node_modules",
         "typecheck": "pnpm -r typecheck",
         "format": "prettier --write \"packages/**/*.{ts,js,json}\" \"apps/**/*.{ts,js,json}\"",
-        "format:check": "prettier --check \"packages/**/*.{ts,js,json}\" \"apps/**/*.{ts,js,json}\""
+        "format:check": "prettier --check \"packages/**/*.{ts,js,json}\" \"apps/**/*.{ts,js,json}\"",
+        "check": "./check.sh"
     },
     "devDependencies": {
         "@types/node": "^22.0.0",

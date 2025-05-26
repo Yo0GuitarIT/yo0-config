@@ -30,13 +30,13 @@ importers:
         specifier: ^4.7.0
         version: 4.19.4
     devDependencies:
-      '@yo0-configs/prettier-config':
-        specifier: workspace:*
-        version: link:../../packages/prettier-config
-      '@yo0-guitar-dev/eslint-config':
+      '@yo0-config/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@yo0-guitar-dev/typescript-config':
+      '@yo0-config/prettier-config':
+        specifier: workspace:*
+        version: link:../../packages/prettier-config
+      '@yo0-config/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
 
@@ -61,6 +61,9 @@ importers:
         specifier: ^4.0.0
         version: 4.1.4(@typescript-eslint/eslint-plugin@8.32.1(@typescript-eslint/parser@8.32.1(eslint@9.27.0)(typescript@5.8.3))(eslint@9.27.0)(typescript@5.8.3))(eslint@9.27.0)
     devDependencies:
+      prettier:
+        specifier: ^3.0.0
+        version: 3.5.3
       typescript:
         specifier: ^5.4.0
         version: 5.8.3
@@ -70,11 +73,15 @@ importers:
       prettier:
         specifier: ^3.0.0
         version: 3.5.3
+    devDependencies:
+      typescript:
+        specifier: ^5.4.0
+        version: 5.8.3
 
   packages/typescript-config:
-    dependencies:
+    devDependencies:
       typescript:
-        specifier: ^5.0.0
+        specifier: ^5.4.0
         version: 5.8.3
 
 packages:

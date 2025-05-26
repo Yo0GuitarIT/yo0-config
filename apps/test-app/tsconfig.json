@@ -1,5 +1,5 @@
 {
-    "extends": "@yo0-guitar-dev/typescript-config/configs/node.json",
+    "extends": "@yo0-config/typescript-config/configs/node.json",
     "compilerOptions": {
         "outDir": "./dist",
         "rootDir": "./src"

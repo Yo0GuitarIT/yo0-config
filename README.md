@@ -52,17 +52,64 @@ export { default } from './config/yo0-config/packages/prettier-config/dist/index
 }
 ```
 
-## Project Templates
+## Available Configurations
 
-- **Node.js**: `configs/node.json`
-- **React**: `configs/react.json` + `config.react` in ESLint
-- **Library**: `configs/library.json`
+### TypeScript
+
+- `base.json` - Basic configuration
+- `node.json` - Node.js projects
+- `web.json` - Browser projects
+- `react.json` - React projects
+- `library.json` - Library projects
+
+### ESLint
+
+- `base` - Basic JavaScript rules
+- `typescript` - TypeScript project rules
+- `node` - Node.js environment rules
+- `react` - React project rules
+
+### Prettier
+
+- `base` - Basic formatting rules (default)
+- `typescript` - TypeScript files
+- `json` - JSON files
+- `markdown` - Markdown files
+
+## Configuration Details
+
+- **Indentation**: 4 spaces
+- **Semicolons**: Required
+- **Quotes**: Single quotes
+- **Line width**: 80 characters
+- **Trailing commas**: ES5 style
+- **Auto sorting**: Import statements
+- **Strict mode**: TypeScript strict checking enabled
 
 ## Features
 
 ✅ ESLint 9.x support • ✅ Auto import sorting • ✅ TypeScript strict mode • ✅ 4-space tabs
 
-## Troubleshooting
+## Maintenance
 
-**Submodule update**: `cd config/yo0-config && git pull && pnpm build`  
-**Peer dependencies**: Ensure ESLint ^9.0.0, Prettier ^3.0.0, TypeScript ^5.0.0
+**Update submodule**: `cd config/yo0-config && git pull && pnpm build`  
+**Run checks**: `cd config/yo0-config && pnpm check`  
+**Dependencies**: Ensure ESLint ^9.0.0, Prettier ^3.0.0, TypeScript ^5.0.0
+
+## Development
+
+This is a private configuration repository used via git submodule.
+
+### Making Changes
+
+1. Edit configuration files in the submodule
+2. Run `pnpm check` to verify everything works
+3. Commit and push changes to the repository
+
+### Project Structure
+
+- `packages/eslint-config/` - ESLint configuration
+- `packages/prettier-config/` - Prettier configuration
+- `packages/typescript-config/` - TypeScript configurations
+- `apps/test-app/` - Test application for validation
+- `check.sh` - Validation script

@@ -1,26 +1,21 @@
 {
-    "name": "@yo0-guitar-dev/typescript-config",
+    "name": "@yo0-config/typescript-config",
     "version": "1.0.0",
     "description": "Shared TypeScript configurations",
     "type": "module",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
-    "files": [
-        "dist/**/*",
-        "configs/**/*"
-    ],
+    "private": true,
     "scripts": {
         "build": "tsc",
         "dev": "tsc --watch",
         "clean": "rm -rf dist",
         "typecheck": "tsc --noEmit"
     },
-    "keywords": [
-        "typescript",
-        "config",
-        "tsconfig"
-    ],
     "peerDependencies": {
         "typescript": "^5.0.0"
+    },
+    "devDependencies": {
+        "typescript": "^5.4.0"
     }
 }

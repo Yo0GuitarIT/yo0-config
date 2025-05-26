@@ -1,4 +1,4 @@
-import config from '@yo0-guitar-dev/eslint-config';
+import config from '@yo0-config/eslint-config';
 
 export default [
     {

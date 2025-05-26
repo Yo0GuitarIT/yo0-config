@@ -17,8 +17,8 @@
         "tsx": "^4.7.0"
     },
     "devDependencies": {
-        "@yo0-guitar-dev/eslint-config": "workspace:*",
-        "@yo0-configs/prettier-config": "workspace:*",
-        "@yo0-guitar-dev/typescript-config": "workspace:*"
+        "@yo0-config/eslint-config": "workspace:*",
+        "@yo0-config/prettier-config": "workspace:*",
+        "@yo0-config/typescript-config": "workspace:*"
     }
 }
