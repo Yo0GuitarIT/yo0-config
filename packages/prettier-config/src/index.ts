@@ -1,7 +1,7 @@
 import type { Config } from 'prettier'
 
 export const base: Config = {
-    semi: false,
+    semi: true,
     singleQuote: true,
     tabWidth: 4,
     trailingComma: 'es5',
