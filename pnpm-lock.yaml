@@ -4,9 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-overrides:
-  eslint: ^9.0.0
-
 importers:
 
   .:
@@ -14,6 +11,9 @@ importers:
       '@types/node':
         specifier: ^22.0.0
         version: 22.15.21
+      eslint:
+        specifier: ^9.0.0
+        version: 9.27.0
       prettier:
         specifier: ^3.5.3
         version: 3.5.3
@@ -30,27 +30,15 @@ importers:
         specifier: ^4.7.0
         version: 4.19.4
     devDependencies:
-      '@types/node':
-        specifier: ^22.0.0
-        version: 22.15.21
+      '@yo0-configs/prettier-config':
+        specifier: workspace:*
+        version: link:../../packages/prettier-config
       '@yo0-guitar-dev/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@yo0-guitar-dev/prettier-config':
-        specifier: workspace:*
-        version: link:../../packages/prettier-config
       '@yo0-guitar-dev/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
-      eslint:
-        specifier: ^9.0.0
-        version: 9.27.0
-      prettier:
-        specifier: ^3.2.0
-        version: 3.5.3
-      typescript:
-        specifier: ^5.4.0
-        version: 5.8.3
 
   packages/eslint-config:
     dependencies:
@@ -60,6 +48,9 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^8.0.0
         version: 8.32.1(eslint@9.27.0)(typescript@5.8.3)
+      eslint:
+        specifier: ^9.0.0
+        version: 9.27.0
       eslint-config-prettier:
         specifier: ^9.0.0
         version: 9.1.0(eslint@9.27.0)
@@ -70,26 +61,20 @@ importers:
         specifier: ^4.0.0
         version: 4.1.4(@typescript-eslint/eslint-plugin@8.32.1(@typescript-eslint/parser@8.32.1(eslint@9.27.0)(typescript@5.8.3))(eslint@9.27.0)(typescript@5.8.3))(eslint@9.27.0)
     devDependencies:
-      eslint:
-        specifier: ^9.0.0
-        version: 9.27.0
       typescript:
         specifier: ^5.4.0
         version: 5.8.3
 
   packages/prettier-config:
-    devDependencies:
+    dependencies:
       prettier:
-        specifier: ^3.2.0
+        specifier: ^3.0.0
         version: 3.5.3
-      typescript:
-        specifier: ^5.4.0
-        version: 5.8.3
 
   packages/typescript-config:
-    devDependencies:
+    dependencies:
       typescript:
-        specifier: ^5.4.0
+        specifier: ^5.0.0
         version: 5.8.3
 
 packages:
@@ -248,7 +233,7 @@ packages:
     resolution: {integrity: sha512-dyybb3AcajC7uha6CvhdVRJqaKyn7w2YKqKyAN37NKYgZT36w+iRb0Dymmc5qEJ549c/S31cMMSFd75bteCpCw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
-      eslint: ^9.0.0
+      eslint: ^6.0.0 || ^7.0.0 || >=8.0.0
 
   '@eslint-community/regexpp@4.12.1':
     resolution: {integrity: sha512-CCZCDJuduB9OUkFkY2IgppNZMi2lBQgD2qzwXkEia16cge2pijY/aXi96CJMquDMn3nJdlPV1A5KrJEXwfLNzQ==}
@@ -328,14 +313,14 @@ packages:
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       '@typescript-eslint/parser': ^8.0.0 || ^8.0.0-alpha.0
-      eslint: ^9.0.0
+      eslint: ^8.57.0 || ^9.0.0
       typescript: '>=4.8.4 <5.9.0'
 
   '@typescript-eslint/parser@8.32.1':
     resolution: {integrity: sha512-LKMrmwCPoLhM45Z00O1ulb6jwyVr2kr3XJp+G+tSEZcbauNnScewcQwtJqXDhXeYPDEjZ8C1SjXm015CirEmGg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
-      eslint: ^9.0.0
+      eslint: ^8.57.0 || ^9.0.0
       typescript: '>=4.8.4 <5.9.0'
 
   '@typescript-eslint/scope-manager@8.32.1':
@@ -346,7 +331,7 @@ packages:
     resolution: {integrity: sha512-mv9YpQGA8iIsl5KyUPi+FGLm7+bA4fgXaeRcFKRDRwDMu4iwrSHeDPipwueNXhdIIZltwCJv+NkxftECbIZWfA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
-      eslint: ^9.0.0
+      eslint: ^8.57.0 || ^9.0.0
       typescript: '>=4.8.4 <5.9.0'
 
   '@typescript-eslint/types@8.32.1':
@@ -363,7 +348,7 @@ packages:
     resolution: {integrity: sha512-DsSFNIgLSrc89gpq1LJB7Hm1YpuhK086DRDJSNrewcGvYloWW1vZLHBTIvarKZDcAORIy/uWNx8Gad+4oMpkSA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
-      eslint: ^9.0.0
+      eslint: ^8.57.0 || ^9.0.0
       typescript: '>=4.8.4 <5.9.0'
 
   '@typescript-eslint/visitor-keys@8.32.1':
@@ -450,18 +435,18 @@ packages:
     resolution: {integrity: sha512-NSWl5BFQWEPi1j4TjVNItzYV7dZXZ+wP6I6ZhrBGpChQhZRUaElihE9uRRkcbRnNb76UMKDF3r+WTmNcGPKsqw==}
     hasBin: true
     peerDependencies:
-      eslint: ^9.0.0
+      eslint: '>=7.0.0'
 
   eslint-plugin-simple-import-sort@12.1.1:
     resolution: {integrity: sha512-6nuzu4xwQtE3332Uz0to+TxDQYRLTKRESSc2hefVT48Zc8JthmN23Gx9lnYhu0FtkRSL1oxny3kJ2aveVhmOVA==}
     peerDependencies:
-      eslint: ^9.0.0
+      eslint: '>=5.0.0'
 
   eslint-plugin-unused-imports@4.1.4:
     resolution: {integrity: sha512-YptD6IzQjDardkl0POxnnRBhU1OEePMV0nd6siHaRBbd+lyh6NAhFEobiznKU7kTsSsDeSD62Pe7kAM1b7dAZQ==}
     peerDependencies:
       '@typescript-eslint/eslint-plugin': ^8.0.0-0 || ^7.0.0 || ^6.0.0 || ^5.0.0
-      eslint: ^9.0.0
+      eslint: ^9.0.0 || ^8.0.0
     peerDependenciesMeta:
       '@typescript-eslint/eslint-plugin':
         optional: true

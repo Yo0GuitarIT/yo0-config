@@ -18,11 +18,7 @@
     },
     "devDependencies": {
         "@yo0-guitar-dev/eslint-config": "workspace:*",
-        "@yo0-guitar-dev/prettier-config": "workspace:*",
-        "@yo0-guitar-dev/typescript-config": "workspace:*",
-        "@types/node": "^22.0.0",
-        "eslint": "^9.0.0",
-        "prettier": "^3.2.0",
-        "typescript": "^5.4.0"
+        "@yo0-configs/prettier-config": "workspace:*",
+        "@yo0-guitar-dev/typescript-config": "workspace:*"
     }
 }

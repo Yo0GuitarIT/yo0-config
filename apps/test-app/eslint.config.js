@@ -1,4 +1,4 @@
-import config from '@yo0-guitar-dev/eslint-config'
+import config from '@yo0-guitar-dev/eslint-config';
 
 export default [
     {
@@ -9,4 +9,4 @@ export default [
         files: ['**/*.ts'],
         ...config.typescript,
     },
-]
+];
